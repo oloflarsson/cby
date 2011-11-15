@@ -19,4 +19,9 @@ Teknologi
 
 Att installera pluginen
 ----------
-TODO
+1. Se till att du befinner dig i mappen /wp-content/plugins
+1. `git clone git@github.com:oloflarsson/cby.git cby`
+1. Du har nu en map /wp-content/plugins/cby
+1. Gå in i den mappen
+1. `git submodule init`
+1. `git submodule update`
