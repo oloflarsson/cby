@@ -19,7 +19,7 @@ Teknologi
 
 Att installera pluginen
 ----------
-1.Se till att du befinner dig i mappen /wp-content/plugins
-1.`git clone --recursive git@github.com:oloflarsson/cby.git cby`<br>
+1. Se till att du befinner dig i mappen /wp-content/plugins
+1. `git clone --recursive git@github.com:oloflarsson/cby.git cby`<br>
 Notera att `--recursive` är viktigt för att initiera submodulerna (doctrine2 ORM).
 1. Pluginen ligger nu i mappen /wp-content/plugins/cby
