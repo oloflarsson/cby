@@ -24,7 +24,10 @@ Att installera pluginen
 (Pluginen ligger nu i mappen /wp-content/plugins/cby)
 1. Gå till mappen <b>/wp-content/plugins/cby</b> (`cd cby`)
 1. `./getlibs.php`<br>
-Detta kommer ladda ner dependencies till mappen lib. Notera att du måste ha git installerat på datorn.
+Detta kommer att ladda ner dependencies till mappen lib. Notera att du måste ha git installerat på datorn.
+1. Skapa en databas för CBY entities och lägg connection-informationen i conf.php
+1. `./doctrine migrations:migrate`<br>
+Detta kommer att skapa databas-strukturen.
 1. Gå aktivera pluginen genom adminpanelen i wordpress.
 
 Att använda pluginen
