@@ -35,6 +35,8 @@ $packagefolders = array(
 	'Doctrine\ORM'              => CBY_LIBFOLDER.'/doctrine-orm/lib',
 	'Doctrine\DBAL\Migrations'  => CBY_LIBFOLDER.'/doctrine-migrations/lib',
 	'Symfony\Component'         => CBY_LIBFOLDER,
+	'Entities'                  => CBY_BASEFOLDER,
+	'Proxies'                   => CBY_BASEFOLDER,
 );
 
 foreach ($packagefolders as $package => $folder)
@@ -53,7 +55,7 @@ $driverImpl = $config->newDefaultAnnotationDriver(CBY_BASEFOLDER.'/Entities');
 $config->setMetadataDriverImpl($driverImpl);
 $config->setQueryCacheImpl($cache);
 $config->setProxyDir(CBY_BASEFOLDER.'/Proxies');
-$config->setProxyNamespace('CBY\Proxies');
+$config->setProxyNamespace('Proxies');
 
 $config->setAutoGenerateProxyClasses($cbyconf['doctrine']['devmode']);
 
