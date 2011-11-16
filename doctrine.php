@@ -1,6 +1,8 @@
 <?php
 require_once 'bootstrap.php';
 
+ini_set('memory_limit','128M');
+
 $cli = new \Symfony\Component\Console\Application('Doctrine Command Line Interface', Doctrine\Common\Version::VERSION);
 $cli->setCatchExceptions(true);
 

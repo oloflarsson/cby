@@ -2,7 +2,7 @@
 
 namespace Entities;
 
-/** @Entity @Table(name="cby_person") */
+/** @Entity @Table(name="person") */
 class Person
 {
     /**
@@ -26,4 +26,26 @@ class Person
 	private $lastname;
 	public function getLastname() { return $this->lastname; }
 	public function setLastname($val) { $this->lastname = $val; }
+	
+	/** @Column(type="integer", length=12) */
+	private $ssn;
+	public function getSsn() { return $this->ssn; }
+	public function setSsn($val) { $this->ssn = $val; }
+	
+	/** @Column(type="string", length=255) */
+	private $phone;
+	public function getPhone() { return $this->phone; }
+	public function setPhone($val) { $this->phone = $val; }
+	
+	// XS, S, M, L, XL, XXL
+	/** @ManyToOne(targetEntity="TShirtType") */
+    private $tshirttype;
+	public function getTShirtType() { return $this->tshirttype; }
+	public function setTShirtType(TShirtType $val) { $this->tshirttype = $val; }
+	
+	// Omnivore, Vegetarian, Vegan
+	/** @ManyToOne(targetEntity="ConsumerType") */
+    private $consumertype;
+	public function getConsumerType() { return $this->consumertype; }
+	public function setConsumerType(ConsumerType $val) { $this->consumertype = $val; }
 }

@@ -1,0 +1,4 @@
+name: CBY Migrations
+migrations_namespace: Migrations
+table_name: cby_migrationversion
+migrations_directory: Migrations
