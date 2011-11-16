@@ -1,0 +1,5 @@
+/lib/doctrine-common/
+/lib/doctrine-dbal/
+/lib/doctrine-orm/
+/lib/doctrine-migrations/
+/lib/Symfony/
