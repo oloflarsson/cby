@@ -23,8 +23,8 @@ class CBY
 	public static function doctrine_bootstrap()
 	{
 		// Setup the doctrine class loader
-		require 'doctrine/lib/Doctrine/ORM/Tools/Setup.php';
-		Doctrine\ORM\Tools\Setup::registerAutoloadGit(CBY_ABSPATH . '/doctrine');
+		require 'lib/doctrine2/lib/Doctrine/ORM/Tools/Setup.php';
+		Doctrine\ORM\Tools\Setup::registerAutoloadGit(CBY_ABSPATH . '/lib/doctrine2');
 		
 		$paths = array(CBY_ABSPATH . '/entities');
 		$isDevMode = true;
