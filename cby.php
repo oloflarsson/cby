@@ -16,7 +16,7 @@ class CBY
 {
 	public static function init()
 	{
-		global $em;
+		/*global $em;
 		
 		$person = new Person;
 		$person->setFirstname('Sven');
@@ -28,7 +28,7 @@ class CBY
 		$person->setAllergycomment('jag er elergisk mot hest');
 		
 		$em->persist($person);
-		$em->flush();
+		$em->flush();*/
 	}
 }
 CBY::init();

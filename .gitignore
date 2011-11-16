@@ -2,4 +2,5 @@
 /lib/doctrine-dbal/
 /lib/doctrine-orm/
 /lib/doctrine-migrations/
+/lib/doctrine-data-fixtures/
 /lib/Symfony/

@@ -30,13 +30,14 @@ if ( ! class_exists('Doctrine\Common\ClassLoader', false))
 }
 
 $packagefolders = array(
-	'Doctrine\Common'           => CBY_LIBFOLDER.'/doctrine-common/lib',
-	'Doctrine\DBAL\Migrations'  => CBY_LIBFOLDER.'/doctrine-migrations/lib',
-	'Doctrine\DBAL'             => CBY_LIBFOLDER.'/doctrine-dbal/lib',
-	'Doctrine\ORM'              => CBY_LIBFOLDER.'/doctrine-orm/lib',
-	'Symfony\Component'         => CBY_LIBFOLDER,
-	'Entities'                  => CBY_BASEFOLDER,
-	'Proxies'                   => CBY_BASEFOLDER,
+	'Doctrine\Common\DataFixtures' => CBY_LIBFOLDER.'/doctrine-data-fixtures/lib',
+	'Doctrine\Common'              => CBY_LIBFOLDER.'/doctrine-common/lib',
+	'Doctrine\DBAL\Migrations'     => CBY_LIBFOLDER.'/doctrine-migrations/lib',
+	'Doctrine\DBAL'                => CBY_LIBFOLDER.'/doctrine-dbal/lib',
+	'Doctrine\ORM'                 => CBY_LIBFOLDER.'/doctrine-orm/lib',
+	'Symfony\Component'            => CBY_LIBFOLDER,
+	'Entities'                     => CBY_BASEFOLDER,
+	'Proxies'                      => CBY_BASEFOLDER,
 );
 
 foreach ($packagefolders as $package => $folder)
