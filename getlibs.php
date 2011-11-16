@@ -20,7 +20,7 @@ $libs = array(
 );
 
 $libdir = dirname(__FILE__).'/lib';
-if ( ! is_dir(libdir))
+if ( ! is_dir($libdir))
 {
 	mkdir($libdir, 0777, true);
 }
