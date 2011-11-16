@@ -2,5 +2,4 @@
 /lib/doctrine-dbal/
 /lib/doctrine-orm/
 /lib/doctrine-migrations/
-/lib/symfony-console/
-/lib/symfony-yaml/
+/lib/Symfony/

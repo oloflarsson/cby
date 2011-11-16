@@ -15,8 +15,8 @@ $libs = array(
 	array('doctrine-dbal', 'git://github.com/doctrine/dbal.git', '2.1.3'),
 	array('doctrine-orm', 'git://github.com/doctrine/doctrine2.git', '2.1.2'),
 	array('doctrine-migrations', 'git://github.com/doctrine/migrations.git', 'origin/master'), // does not use tags.
-	array('symfony-console', 'git://github.com/symfony/Console.git', 'd7b1718424'),
-	array('symfony-yaml', 'git://github.com/symfony/Yaml.git', '6d7a0b450f'),
+	array('Symfony/Component/Console', 'git://github.com/symfony/Console.git', 'd7b1718424'), // 2.0.5
+	array('Symfony/Component/Yaml', 'git://github.com/symfony/Yaml.git', '6d7a0b450f'), // 2.0.5
 );
 
 $libdir = dirname(__FILE__).'/lib';
