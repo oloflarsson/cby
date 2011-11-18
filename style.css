@@ -1,0 +1,39 @@
+body form#cby_signupform table
+{
+	border-collapse: collapse;
+	border: 0;
+	margin: 0;
+	width: 100%;
+}
+
+body form#cby_signupform table td
+{
+	border: 0px none;
+	padding: 0 10px 10px 0;
+}
+
+body form#cby_signupform table td.col1
+{
+	width: 60%;
+}
+
+body form#cby_signupform table td.col2
+{
+	/*vertical-align:bottom;*/
+}
+
+form#cby_signupform label
+{
+	font-weight: bold;
+}
+
+body .cby_nobr
+{
+	white-space: nowrap;
+}
+
+body .cby_error
+{
+	font-weight: bold;
+	color: maroon;
+}

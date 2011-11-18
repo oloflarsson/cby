@@ -8,7 +8,7 @@ use Doctrine\DBAL\Migrations\AbstractMigration,
 /**
  * Auto-generated Migration: Please modify to your need!
  */
-class Version20111116190118 extends AbstractMigration
+class Version20111118143238 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -16,8 +16,8 @@ class Version20111116190118 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != "mysql");
         
         $this->addSql("CREATE TABLE consumertype (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = InnoDB");
-        $this->addSql("CREATE TABLE person (id INT AUTO_INCREMENT NOT NULL, consumertype_id INT DEFAULT NULL, tshirttype_id INT DEFAULT NULL, firstname VARCHAR(255) NOT NULL, nick VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, ssn INT NOT NULL, phone VARCHAR(255) NOT NULL, comment VARCHAR(255) NOT NULL, allergycomment VARCHAR(255) NOT NULL, INDEX IDX_34DCD176F2D5E2D2 (consumertype_id), INDEX IDX_34DCD1764F677C87 (tshirttype_id), PRIMARY KEY(id)) ENGINE = InnoDB");
-        $this->addSql("CREATE TABLE tshirttype (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = InnoDB");
+        $this->addSql("CREATE TABLE person (id INT AUTO_INCREMENT NOT NULL, consumertype_id INT DEFAULT NULL, tshirttype_id INT DEFAULT NULL, firstname VARCHAR(255) NOT NULL, nick VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, ssn INT NOT NULL, email VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL, comment VARCHAR(255) NOT NULL, allergycomment VARCHAR(255) NOT NULL, INDEX IDX_34DCD176F2D5E2D2 (consumertype_id), INDEX IDX_34DCD1764F677C87 (tshirttype_id), PRIMARY KEY(id)) ENGINE = InnoDB");
+        $this->addSql("CREATE TABLE tshirttype (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, price INT NOT NULL, PRIMARY KEY(id)) ENGINE = InnoDB");
         $this->addSql("ALTER TABLE person ADD CONSTRAINT FK_34DCD176F2D5E2D2 FOREIGN KEY (consumertype_id) REFERENCES consumertype(id)");
         $this->addSql("ALTER TABLE person ADD CONSTRAINT FK_34DCD1764F677C87 FOREIGN KEY (tshirttype_id) REFERENCES tshirttype(id)");
     }

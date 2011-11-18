@@ -5,12 +5,27 @@ namespace Entities;
 /** @Entity @Table(name="person") */
 class Person
 {
+	public function __construct()
+	{
+		$this->created = new \DateTime("now");
+		$this->ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+	}
+
     /**
      * @Id @Column(type="integer")
      * @GeneratedValue(strategy="AUTO")
      */
     private $id;
 	public function getId() { return $this->id; }
+	
+	/** @Column(type="datetime") */
+    private $created;
+	public function getCreated() { return $this->created; }
+	
+	/** @Column(type="string", length=255) */
+	private $ip;
+	public function getIp() { return $this->ip; }
+	public function setIp($val) { $this->ip = $val; }
 	
 	/** @Column(type="string", length=255) */
 	private $firstname;
@@ -31,6 +46,11 @@ class Person
 	private $ssn;
 	public function getSsn() { return $this->ssn; }
 	public function setSsn($val) { $this->ssn = $val; }
+	
+	/** @Column(type="string", length=255) */
+	private $email;
+	public function getEmail() { return $this->email; }
+	public function setEmail($val) { $this->email = $val; }
 	
 	/** @Column(type="string", length=255) */
 	private $phone;
