@@ -40,6 +40,11 @@ class Person
     private $created;
 	public function getCreated() { return $this->created; }
 	
+	/** @Column(type="datetime", nullable="true") */
+    private $paid;
+	public function getPaid() { return $this->paid; }
+	public function setPaid() { $this->paid = new \DateTime("now"); }
+	
 	/** @Column(type="string", length=255) */
 	private $ip;
 	public function getIp() { return $this->ip; }

@@ -13,7 +13,7 @@ use Entities\Person;
 require_once 'bootstrap.php';
 
 class CBY
-{	
+{
 	public static function init()
 	{
 		wp_register_script('jquery.validate', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js', array('jquery'));
@@ -225,3 +225,78 @@ class CBY
 	}
 }
 CBY::init();
+
+# =============================================
+# THE PERSONS WIDGET
+# =============================================
+// register the widget
+add_action('widgets_init', array('CBY_Persons_Widget', 'register'));
+class CBY_Persons_Widget extends WP_Widget
+{
+	function __construct()
+	{
+		parent::__construct(false, $name = 'CBY Persons Widget');	
+	}
+
+	static function register()
+	{
+		register_widget(get_class());
+	}
+	
+	function widget($args, $instance)
+	{	
+		global $em;
+		extract($args);
+		
+		$title = apply_filters('widget_title', $instance['title']);
+		
+		$q = $em->createQuery("select p from Entities\Person p where p.paid IS NOT NULL");
+		$persons = $q->getResult();
+		
+		$personStrings = array();
+		foreach ($persons as $person)
+		{
+			$name = $person->getFirstname();
+			if (strlen($person->getNick()))
+			{
+				$name .= ' "' . $person->getNick() . '"';
+			}
+			$name .= ' ' .  $person->getLastname();
+			$personStrings[] = '<li>'.$name.'</li>';
+		}
+		
+		echo $before_widget;
+		echo $before_title . $title . $after_title;
+		if (count($personStrings))
+		{
+			echo '<ul>'.implode('', $personStrings).'</ul>';
+		}
+		else
+		{
+			echo '<p><em>Ännu inga anmälda</em></p>';
+		}
+		
+		echo $after_widget;
+	}
+	
+	function update($new_instance, $old_instance)
+	{
+		return $new_instance;
+	}
+	
+	function form($instance)
+	{
+		$instance = wp_parse_args((array)$instance, array(
+			'title' => 'Vi Kommer',
+		));
+		
+		$title = $instance['title'];
+		
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+		<?php
+	}
+}
