@@ -64,15 +64,22 @@ class CBY
 		$data = self::get_signup_postdata();
 		
 		// Did someone post?
-		if (isset($_POST['firstname']))
+		if (isset($_POST['firstname']) && wp_verify_nonce($_POST['cby_signup_nonce'], 'cby_signup'))
 		{
 			$errors = self::get_errors_from_signup_postdata($data);
 			
 			// No errors?? return success message instead!
+			if (count($errors) == 0)
+			{
+				$person = self::create_person_from_data($data);
+				return "SUCCESS! :D Skriv ut info om att mail har skickats, vad som ska betalas etc.";
+			}
 		}
 		
 		// Build the form
 		$ret = '<form id="cby_signupform" method="post"><table>';
+		$ret .= wp_nonce_field('cby_signup', 'cby_signup_nonce', true, false);
+		
 		foreach (self::$signupfields as $field_id => $field_settings)
 		{
 			$ret .= '<tr><td class="col1"><label for="'.$field_id.'">'.$field_settings[0].'</label><br>';
@@ -110,6 +117,20 @@ class CBY
 		$ret .= '<tr><td colspan="2"><input type="submit" value="Sign me up!"></td></tr></table></form>';
 		
 		return $ret;
+	}
+	
+	public static function create_person_from_data($data)
+	{
+		global $em;
+		
+		$p = new Person;
+		$p->setFromArray($data);
+		$em->persist($p);
+		$em->flush();
+		
+		// Skicka email.
+		
+		return $p;
 	}
 	
 	public static function get_signup_postdata()

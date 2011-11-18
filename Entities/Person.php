@@ -10,6 +10,24 @@ class Person
 		$this->created = new \DateTime("now");
 		$this->ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
 	}
+	
+	public function setFromArray($array)
+	{
+		global $em;
+		foreach ($array as $key => $value)
+		{
+			if ($key == 'tshirttype')
+			{
+				$value = $em->find('Entities\TShirtType', $value);
+			}
+			else if ($key == 'consumertype')
+			{
+				$value = $em->find('Entities\ConsumerType', $value);
+			}
+			
+			$this->{'set'.ucfirst($key)}($value);
+		}
+	}
 
     /**
      * @Id @Column(type="integer")
@@ -42,10 +60,10 @@ class Person
 	public function getLastname() { return $this->lastname; }
 	public function setLastname($val) { $this->lastname = $val; }
 	
-	/** @Column(type="integer", length=12) */
+	/** @Column(type="string", length=12) */
 	private $ssn;
 	public function getSsn() { return $this->ssn; }
-	public function setSsn($val) { $this->ssn = $val; }
+	public function setSsn($val) { $this->ssn = (int)$val; }
 	
 	/** @Column(type="string", length=255) */
 	private $email;
