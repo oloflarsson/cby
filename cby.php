@@ -256,12 +256,12 @@ class CBY_Persons_Widget extends WP_Widget
 		$personStrings = array();
 		foreach ($persons as $person)
 		{
-			$name = $person->getFirstname();
+			$name = htmlspecialchars($person->getFirstname());
 			if (strlen($person->getNick()))
 			{
-				$name .= ' "' . $person->getNick() . '"';
+				$name .= ' "' . htmlspecialchars($person->getNick()) . '"';
 			}
-			$name .= ' ' .  $person->getLastname();
+			$name .= ' ' .  htmlspecialchars($person->getLastname());
 			$personStrings[] = '<li>'.$name.'</li>';
 		}
 		
