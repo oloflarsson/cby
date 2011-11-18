@@ -139,6 +139,9 @@ class CBY
 		foreach (self::$signupfields as $field_id => $field_settings)
 		{
 			$ret[$field_id] = (isset($_POST[$field_id]) ? trim($_POST[$field_id]) : '');
+			
+			// Strip the horrible slashes.
+			$ret[$field_id] = stripslashes($ret[$field_id]);
 		}
 		
 		// Remove non digits from the social security number.
