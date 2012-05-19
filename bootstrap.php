@@ -11,12 +11,8 @@ use Doctrine\Common\ClassLoader,
 define('CBY_BASEFOLDER', dirname(__FILE__));
 define('CBY_LIBFOLDER', CBY_BASEFOLDER.'/lib');
 
-# Make sure the wp-config.php is loaded
-# We need it for the database connection information
-require_once CBY_BASEFOLDER.'/../../../wp-config.php';
-
 # Get the configuration
-require 'conf.php';
+require_once 'conf.php';
 
 # =============================================
 # DOCTRINE

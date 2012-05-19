@@ -7,16 +7,16 @@ class TicketOptions implements FixtureInterface
 {	
 	public function load($em)
 	{
-		$name_prices = array(
-			'Vanlig' => 430,
-			'Sen'  => 500,
-		);
+		$datas = array();
+		$datas[] = array('name' => 'Vanlig', 'price' => 400, 'available' => true);
+		$datas[] = array('name' => 'Sen', 'price' => 500, 'available' => false);
 		
-		foreach ($name_prices as $name => $price)
+		foreach ($datas as $data)
 		{
 			$o = new TicketOption;
-			$o->setName($name);
-			$o->setPrice($price);
+			$o->setName($data['name']);
+			$o->setPrice($data['price']);
+			$o->setAvailable($data['available']);
 			$em->persist($o);
 		}
 		

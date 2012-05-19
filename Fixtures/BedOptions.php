@@ -9,7 +9,7 @@ class BedOptions implements FixtureInterface
 	{
 		$name_prices = array(
 			'Eget Tält' => 0,
-			'Säng' => 150,
+			'Säng' => 100,
 		);
 		
 		foreach ($name_prices as $name => $price)

@@ -41,20 +41,30 @@ class CBY_Persons_Widget extends WP_Widget
 		$title = apply_filters('widget_title', $instance['title']);
 		$emptymsg = $instance['emptymsg'];
 		
-		if ($this->paymode == 'ALL')
+		$persons = array();
+		foreach ($em->getRepository('Entities\\Person')->findAll() as $person)
 		{
-			$q = $em->createQuery("select p from Entities\Person p");
+			if ($this->paymode == 'ALL')
+			{
+				$persons[] = $person;
+				continue;
+			}
+			
+			if ($person->hasPaidEnough())
+			{
+				if ($this->paymode == 'YES')
+				{
+					$persons[] = $person;
+				}
+			}
+			else
+			{
+				if ($this->paymode == 'NO')
+				{
+					$persons[] = $person;
+				}
+			}
 		}
-		else if ($this->paymode == 'YES')
-		{
-			$q = $em->createQuery("select p from Entities\Person p where p.datepaid IS NOT NULL");
-		}
-		else if ($this->paymode == 'NO')
-		{
-			$q = $em->createQuery("select p from Entities\Person p where p.datepaid IS NULL");
-		}
-		
-		$persons = $q->getResult();
 		
 		$personStrings = array();
 		foreach ($persons as $person)
@@ -314,7 +324,7 @@ class CBY
 		$ret .= '</p>';
 		
 		$ret .= '<p>';
-		$ret .= 'Du har betalat <strong>'.$person->getAmountPaid().' av '.$person->getPriceSum().'kr</strong>.' . '<br>';
+		$ret .= 'Vi har registrerat mottagning för <strong style="color: '.($person->hasPaidEnough() ? 'green' : 'maroon').';">'.$person->getAmountPaid().'kr av '.$person->getPriceSum().'kr</strong>.' . '<br>';
 		$ret .= 'Betalning ska göras till <strong>' . $payto . '</strong>.';
 		$ret .= '</p>';
 		
@@ -331,7 +341,7 @@ class CBY
 		$ret .= '</ul>';
 		
 		$ret .= '<p>';
-		$ret .= '<strong>Intyg från målsman inlämnat:</strong> ' . htmlspecialchars($person->descReceivedGuardianOption()) . '<br>';
+		$ret .= '<strong>Är <a href="' . plugins_url('cby/files/foraldraintyg.pdf') . '">intyg från målsman</a> inlämnat:</strong> ' . htmlspecialchars($person->descReceivedGuardianOption()) . '<br>';
 		$ret .= '<strong>Incheckad:</strong> ' . htmlspecialchars($person->descCheckedIn()) . '<br>';
 		$ret .= '<strong>Fått T-Shirt:</strong> ' . htmlspecialchars($person->descReceivedShirtOption()) . '<br>';
 		$ret .= '<strong>Fått Lampolja:</strong> ' . htmlspecialchars($person->descReceivedOilOption()) . '<br>';
@@ -456,7 +466,8 @@ class CBY
 		global $cbyconf;
 		$ret = array();
 		
-		foreach ($cbyconf['frontfields'] as $frontfield)
+		$frontfields = $cbyconf['frontfields'];
+		foreach ($frontfields as $frontfield)
 		{
 			$ret[$frontfield] = (isset($_POST[$frontfield]) ? trim($_POST[$frontfield]) : '');
 			

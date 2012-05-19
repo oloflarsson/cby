@@ -142,9 +142,10 @@ class Person
 	
 	public function getAgeInYears()
 	{
+		global $cbyconf;
 		$ssnDateTime = \DateTime::createFromFormat('Ymd????', $this->getSsn());
-		$nowDateTime = new \DateTime();
-		$interval = $ssnDateTime->diff($nowDateTime);
+		$startDateTime = \DateTime::createFromFormat('Y-m-d', $cbyconf['campstart']);
+		$interval = $ssnDateTime->diff($startDateTime);
 		return $interval->y;
 	}
 	
