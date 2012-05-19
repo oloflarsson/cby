@@ -37,3 +37,36 @@ body .cby_error
 	font-weight: bold;
 	color: maroon;
 }
+
+body .minitext
+{
+	font-size: 9px;
+}
+
+/* Talblesorter */ 
+table.tablesorter tbody tr:nth-child(even)
+{
+	background-color: #F9F9F9;
+}
+table.tablesorter tbody tr:nth-child(odd)
+{
+	background-color: white;
+}
+table.tablesorter .header
+{
+	/*padding-right: 10px;*/
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	white-space: nowrap;
+}
+table.tablesorter .headerSortUp
+{
+	background-image: url(img/sort_asc.gif);
+	background-color: white;
+}
+table.tablesorter .headerSortDown
+{
+	background-image: url(img/sort_desc.gif);
+	background-color: white;
+}

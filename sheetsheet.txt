@@ -1,0 +1,12 @@
+/home/cby/files/websites/campburnyourself.se/base/wp-content/plugins/cby
+
+php doctrine.php
+
+
+php doctrine.php orm:schema-tool:create
+
+php doctrine.php orm:schema-tool:create
+
+
+php doctrine.php orm:schema-tool:update
+php doctrine.php orm:schema-tool:drop
