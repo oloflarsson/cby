@@ -27,8 +27,9 @@ Att installera pluginen
 1. `./getlibs.php`<br>
 Detta kommer att ladda ner dependencies till mappen lib. Notera att du måste ha git installerat på datorn.
 1. Skapa en databas för CBY entities och lägg connection-informationen i conf.php
-1. `./doctrine migrations:migrate`<br>
+1. `./doctrine orm:schema-tool:create`<br>
 Detta kommer att skapa databas-strukturen.
+1. `./loadfixtures.php`<br>
 1. Gå aktivera pluginen genom adminpanelen i wordpress.
 
 Att använda pluginen
