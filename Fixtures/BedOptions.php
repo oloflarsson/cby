@@ -10,8 +10,13 @@ class BedOptions implements FixtureInterface
 		$datas = array();
 
 		// 2012
-		$datas[] = array('name' => 'Eget Tält', 'price' => 0, 'available' => true);
-		$datas[] = array('name' => 'Säng', 'price' => 100, 'available' => true);
+		//$datas[] = array('name' => 'Eget Tält', 'price' => 0, 'available' => true);
+		//$datas[] = array('name' => 'Säng', 'price' => 100, 'available' => true);
+
+		// 2013
+		$datas[] = array('name' => 'I år går det inte tälta.', 'price' => 0, 'available' => false);
+		$datas[] = array('name' => 'Säng, först *betalade* biljetter får dem.', 'price' => 0, 'available' => true);
+		$datas[] = array('name' => 'Jag sover på medtagen luftmadrass/liggunderlag/sovsäck/hängmatta.', 'price' => 0, 'available' => true);
 
 		foreach ($datas as $data)
 		{
