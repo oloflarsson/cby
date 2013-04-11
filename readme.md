@@ -23,6 +23,7 @@ Att installera pluginen
 1. `git clone git@github.com:oloflarsson/cby.git cby`<br>
 (Pluginen ligger nu i mappen /wp-content/plugins/cby)
 1. Gå till mappen <b>/wp-content/plugins/cby</b> (`cd cby`)
+1. Se till att getlibs.php är exekverbar.
 1. `./getlibs.php`<br>
 Detta kommer att ladda ner dependencies till mappen lib. Notera att du måste ha git installerat på datorn.
 1. Skapa en databas för CBY entities och lägg connection-informationen i conf.php
