@@ -15,8 +15,8 @@ $libs = array(
 	array('doctrine-common', 'git://github.com/doctrine/common.git', '2.1.2'),
 	array('doctrine-dbal', 'git://github.com/doctrine/dbal.git', '2.1.3'),
 	array('doctrine-orm', 'git://github.com/doctrine/doctrine2.git', '2.1.2'),
-	array('doctrine-migrations', 'git://github.com/doctrine/migrations.git', 'origin/master'), // does not use tags.
-	array('doctrine-data-fixtures', 'git://github.com/doctrine/data-fixtures.git', 'origin/master'), // does not use tags.
+	array('doctrine-migrations', 'git://github.com/doctrine/migrations.git', '73c7570042fb8d0bb74281164c55ae5740562d4b'), // The one used 2012
+	array('doctrine-data-fixtures', 'git://github.com/doctrine/data-fixtures.git', '3ef3f667cc7a4552beee2fc4abefd4da1a43557c'), // The one used 2012
 	array('Symfony/Component/Console', 'git://github.com/symfony/Console.git', 'd7b1718424'), // 2.0.5
 	array('Symfony/Component/Yaml', 'git://github.com/symfony/Yaml.git', '6d7a0b450f'), // 2.0.5
 );

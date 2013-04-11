@@ -4,7 +4,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Entities\ShirtOption;
 
 class ShirtOptions implements FixtureInterface
-{	
+{
 	public function load($em)
 	{
 		$name_prices = array(

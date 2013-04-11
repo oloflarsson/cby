@@ -7,7 +7,7 @@ $cbyconf = array(
 			'user'     => 'cby',
 			'password' => 'kalas!!!',
 			'host'     => 'localhost',
-			'dbname'   => 'cby_2012_entities',
+			'dbname'   => 'cby_2013_entities',
 			'charset'  => 'utf8',
 			'driverOptions' => array(
 				1002 => 'SET NAMES utf8'
@@ -17,7 +17,7 @@ $cbyconf = array(
 	'economy' => array(
 		'payto' => "BankGiro 5349-7707 Salza Productions"
 	),
-	'campstart' => '2012-07-03',
+	'campstart' => '2013-07-16',
 	'fieldinfo' => array(
 		'StatusLink' => array(
 			'type' => 'StatusLink',
