@@ -50,6 +50,13 @@ class CBY_Persons_Widget extends WP_Widget
 				continue;
 			}
 			
+			if ($this->paymode == 'CHECKED')
+			{
+				if ($person->getCheckedIn()->getId() != 1 ) continue; 
+				$persons[] = $person;
+				continue;
+			}
+			
 			if ($person->hasPaidEnough())
 			{
 				if ($this->paymode == 'YES')
@@ -138,6 +145,14 @@ class CBY_Persons_Widget_All extends CBY_Persons_Widget
 	}
 }
 
+class CBY_Persons_Widget_Checkedin extends CBY_Persons_Widget
+{
+	function __construct()
+	{
+		parent::__construct("CBY Persons Checkedin", "CHECKED", "Incheckade", "<p><em>Här var det tomt</em></p>");
+	}
+}
+
 # =============================================
 # THE MAIN PLUGIN STATIC CLASS
 # =============================================
@@ -208,6 +223,7 @@ class CBY
 		register_widget("CBY_Persons_Widget_Yes");
 		register_widget("CBY_Persons_Widget_No");
 		register_widget("CBY_Persons_Widget_All");
+		register_widget("CBY_Persons_Widget_Checkedin");
 	}
 	
 	# =============================================
@@ -339,6 +355,10 @@ class CBY
 			$ret .= '</li>';
 		}
 		$ret .= '</ul>';
+		
+		$ret .= '<p>';
+		$ret .= 'Om du inte bokat sängplats, t-shirt eller tillräckligt med lampolja och kommer på att du vill ha det så kan du e-posta info@campburnyourself.se och säga vad du vill lägga till på din anmälan.';
+		$ret .= '<p>';
 		
 		$ret .= '<p>';
 		$ret .= '<strong>Är <a href="' . plugins_url('cby/files/foraldraintyg.pdf') . '">intyg från målsman</a> inlämnat:</strong> ' . htmlspecialchars($person->descReceivedGuardianOption()) . '<br>';
