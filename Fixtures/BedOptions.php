@@ -7,16 +7,18 @@ class BedOptions implements FixtureInterface
 {	
 	public function load($em)
 	{
-		$name_prices = array(
-			'Eget Tält' => 0,
-			'Säng' => 100,
-		);
-		
-		foreach ($name_prices as $name => $price)
+		$datas = array();
+
+		// 2012
+		$datas[] = array('name' => 'Eget Tält', 'price' => 0, 'available' => true);
+		$datas[] = array('name' => 'Säng', 'price' => 100, 'available' => true);
+
+		foreach ($datas as $data)
 		{
 			$o = new BedOption;
-			$o->setName($name);
-			$o->setPrice($price);
+			$o->setName($data['name']);
+			$o->setPrice($data['price']);
+			$o->setAvailable($data['available']);
 			$em->persist($o);
 		}
 		

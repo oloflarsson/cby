@@ -8,9 +8,18 @@ class TicketOptions implements FixtureInterface
 	public function load($em)
 	{
 		$datas = array();
-		$datas[] = array('name' => 'Vanlig', 'price' => 400, 'available' => true);
-		$datas[] = array('name' => 'Sen', 'price' => 500, 'available' => false);
-		
+		// 2012
+		//$datas[] = array('name' => 'Vanlig', 'price' => 400, 'available' => true);
+		//$datas[] = array('name' => 'Sen', 'price' => 500, 'available' => false);
+
+		// 2013
+		$datas[] = array('name' => 'Hel biljett, tidig', 'price' => 420, 'available' => true);
+		$datas[] = array('name' => 'Hel biljett', 'price' => 530, 'available' => false);
+		$datas[] = array('name' => 'Hel biljett, betalat på plats', 'price' => 570, 'available' => false);
+		$datas[] = array('name' => 'Tredagars, tidig', 'price' => 230, 'available' => true);
+		$datas[] = array('name' => 'Tredagars', 'price' => 270, 'available' => false);
+		$datas[] = array('name' => 'Tredagars, betalat på plats', 'price' => 300, 'available' => false);
+
 		foreach ($datas as $data)
 		{
 			$o = new TicketOption;
