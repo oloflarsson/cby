@@ -13,12 +13,23 @@ class TicketOptions implements FixtureInterface
 		//$datas[] = array('name' => 'Sen', 'price' => 500, 'available' => false);
 
 		// 2013
-		$datas[] = array('name' => 'Hel biljett, tidig', 'price' => 420, 'available' => true);
+		//$datas[] = array('name' => 'Hel biljett, tidig', 'price' => 420, 'available' => true);
+		//$datas[] = array('name' => 'Hel biljett', 'price' => 530, 'available' => false);
+		//$datas[] = array('name' => 'Hel biljett, betalat på plats', 'price' => 570, 'available' => false);
+		//$datas[] = array('name' => 'Tredagars, tidig', 'price' => 230, 'available' => true);
+		//$datas[] = array('name' => 'Tredagars', 'price' => 270, 'available' => false);
+		//$datas[] = array('name' => 'Tredagars, betalat på plats', 'price' => 300, 'available' => false);
+
+		// 2014
+		$datas[] = array('name' => 'Hel biljett, tidig', 'price' => 465, 'available' => true);
 		$datas[] = array('name' => 'Hel biljett', 'price' => 530, 'available' => false);
-		$datas[] = array('name' => 'Hel biljett, betalat på plats', 'price' => 570, 'available' => false);
-		$datas[] = array('name' => 'Tredagars, tidig', 'price' => 230, 'available' => true);
-		$datas[] = array('name' => 'Tredagars', 'price' => 270, 'available' => false);
-		$datas[] = array('name' => 'Tredagars, betalat på plats', 'price' => 300, 'available' => false);
+		$datas[] = array('name' => 'Hel biljett, betalat på plats', 'price' => 600, 'available' => false);
+		$datas[] = array('name' => 'Tredagars, tidig', 'price' => 320, 'available' => true);
+		$datas[] = array('name' => 'Tredagars', 'price' => 380, 'available' => false);
+		$datas[] = array('name' => 'Tredagars, betalat på plats', 'price' => 440, 'available' => false);
+		$datas[] = array('name' => 'En dag, tidig', 'price' => 160, 'available' => true);
+		$datas[] = array('name' => 'En dag', 'price' => 190, 'available' => false);
+		$datas[] = array('name' => 'En dag, betalat på plats', 'price' => 220, 'available' => false);
 
 		foreach ($datas as $data)
 		{

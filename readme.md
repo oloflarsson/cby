@@ -10,6 +10,8 @@ Funktioner
 Har använts dessa år
 ----------
 * 2012
+* 2013
+* 2014
 
 Teknologi
 ----------
